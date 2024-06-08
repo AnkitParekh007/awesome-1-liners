@@ -1,7 +1,7 @@
 # One-Liner JavaScript Code Snippets 
 
 ## For Arrays
-This file contains a collection of 50 useful one-liner JavaScript code snippets for array manipulation and operations. These snippets cover various common tasks and scenarios encountered while working with arrays in JavaScript.
+This file contains a collection of useful one-liner JavaScript code snippets for array manipulation and operations. These snippets cover various common tasks and scenarios encountered while working with arrays in JavaScript.
 
 ## Snippets
 
@@ -58,3 +58,49 @@ This file contains a collection of 50 useful one-liner JavaScript code snippets 
    | 49  | Get the unique elements and their counts in an array                                                                                                                  | `Object.entries(array.reduce((acc, element) => { acc[element] = (acc[element] || 0) + 1; return acc; }, {}));`                                                                 |
    | 50  | Rotate elements in an array to the left by n positions                                                                                                                | `array.slice(n).concat(array.slice(0, n));`                                                                                                                                    |
    
+
+## For Objects
+
+| #   | Description                                                                                   | Code Snippet                                                                                                       |
+| --- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| 1   | Clone an object                                                                               | `{ ...object };`                                                                                                  |
+| 2   | Merge two objects                                                                             | `{ ...object1, ...object2 };`                                                                                      |
+| 3   | Check if an object has a property                                                             | `'propertyName' in object;`                                                                                        |
+| 4   | Get the keys of an object                                                                     | `Object.keys(object);`                                                                                            |
+| 5   | Get the values of an object                                                                   | `Object.values(object);`                                                                                          |
+| 6   | Check if an object is empty                                                                   | `Object.keys(object).length === 0 && object.constructor === Object;`                                               |
+| 7   | Check if two objects are equal                                                                | `JSON.stringify(object1) === JSON.stringify(object2);`                                                              |
+| 8   | Iterate over object keys                                                                      | `for (let key in object) { /* access object[key] */ }`                                                             |
+| 9   | Iterate over object values                                                                    | `Object.values(object).forEach(value => { /* process value */ });`                                                 |
+| 10  | Iterate over object entries                                                                   | `Object.entries(object).forEach(([key, value]) => { /* process key and value */ });`                               |
+| 11  | Get the number of properties in an object                                                     | `Object.keys(object).length;`                                                                                     |
+| 12  | Remove a property from an object (mutates the original object)                                 | `delete object.propertyName;`                                                                                     |
+| 13  | Freeze an object (prevent adding or modifying properties)                                      | `Object.freeze(object);`                                                                                          |
+| 14  | Seal an object (prevent adding properties, but allow modifying existing ones)                  | `Object.seal(object);`                                                                                            |
+| 15  | Prevent extension of an object (prevent adding new properties, but allow modifying existing ones) | `Object.preventExtensions(object);`                                                                               |
+| 16  | Get the prototype of an object                                                                | `Object.getPrototypeOf(object);`                                                                                  |
+| 17  | Check if an object is an array                                                                | `Array.isArray(object);`                                                                                          |
+| 18  | Get a deep copy of an object                                                                  | `JSON.parse(JSON.stringify(object));`                                                                             |
+| 19  | Check if a property exists in an object (including prototype chain)                            | `object.hasOwnProperty('propertyName');`                                                                         |
+| 20  | Get a property value from an object using a variable key                                        | `object[variableKey];`                                                                                            |
+| 21  | Get a property value from an object with a default value if the property does not exist         | `object.propertyName || defaultValue;`                                                                            |
+| 22  | Get a nested property value from an object                                                     | `object.nestedObject.propertyName;`                                                                               |
+| 23  | Set a property value in an object                                                              | `object.propertyName = value;`                                                                                     |
+| 24  | Merge multiple objects into one                                                                 | `Object.assign({}, object1, object2, object3);`                                                                    |
+| 25  | Check if an object contains all properties of another object                                    | `Object.keys(subsetObject).every(key => object.hasOwnProperty(key) && object[key] === subsetObject[key]);`        |
+| 26  | Get the first key of an object                                                                 | `Object.keys(object)[0];`                                                                                         |
+| 27  | Get the last key of an object                                                                  | `Object.keys(object)[Object.keys(object).length - 1];`                                                             |
+| 28  | Convert an object to an array of key-value pairs                                               | `Object.entries(object);`                                                                                         |
+| 29  | Convert an array of key-value pairs to an object                                               | `Object.fromEntries(array);`                                                                                      |
+| 30  | Get a property descriptor of an object's property                                              | `Object.getOwnPropertyDescriptor(object, 'propertyName');`                                                      |
+| 31  | Check if an object is extensible (new properties can be added)                                  | `Object.isExtensible(object);`                                                                                    |
+| 32  | Check if an object is frozen (properties cannot be added, modified, or removed)                | `Object.isFrozen(object);`                                                                                        |
+| 33  | Check if an object is sealed (properties cannot be added, but existing ones can be modified or removed) | `Object.isSealed(object);`                                                                                   |
+| 34  | Get an object's own property names                                                             | `Object.getOwnPropertyNames(object);`                                                                            |
+| 35  | Get an object's own property symbols                                                           | `Object.getOwnPropertySymbols(object);`                                                                          |
+| 36  | Create an object with a prototype                                                              | `Object.create(prototypeObject);`                                                                                  |
+| 37  | Check if an object is an instance of a specific class                                           | `object instanceof ClassName;`                                                                                    |
+| 38  | Check if an object is plain (created by '{}')                                                   | `Object.prototype.toString.call(object) === '[object Object]';`                                                    |
+| 39  | Flatten an object (convert nested properties to a flat structure)                               | `Object.entries(object).reduce((acc, [key, value]) => { if (typeof value === 'object') { Object.assign(acc, flatten({ [key]: value })); } else { acc[key] = value; } return acc; }, {});` |
+| 40  | Convert object keys to camelCase                                                                | `Object.keys(object).reduce((acc, key) => { acc[camelCase(key)] = object[key]; return acc; }, {});`               |
+| 41  | Convert object keys to snake_case                                                              | `Object.keys(object).reduce((acc, key) => { acc[snake_case(key)] = object[key]; return acc; }, {});`              |
